@@ -73,7 +73,7 @@ If smart contracts are utilized to convey economic value between participants; e
 Consumer Satisfaction Data can be bound to sales data in a secure manner.  For example a rating system that is only available to the consumer through a private key that is consumed upon actual consumption of the product.  This can also be done in an Opt-In only manner.
 
 #### Token Standard
-It is useful to use Ethereum Classic ERC20 or ERC721 as the test platform and initial launching standard as it is an established and stabilized Smart Contract platform and protocol, however Cardano will be the superior platform to establish the Brewtegrity® Token on in the long run.  It will be reasonable to port the tokens from the Ethereum Classic blockchain over to Cardano as it develops in the future.  Cardano enables a decentralized governance model that can be implemented once the project achieves market stability. 
+It is useful to use Ethereum ERC20 or ERC721 as the test platform and initial launching standard as it is an established and stabilized Smart Contract platform and protocol, however Cardano will be the superior platform to establish the Brewtegrity® Token on in the long run.  It will be reasonable to port the tokens from the Ethereum blockchain over to Cardano as it develops in the future.  Cardano enables a decentralized governance model that can be implemented once the project achieves market stability. 
 
 #### Scaling Model
 This concept can logically and stably scale from one brewery conveying production data to one consumer to an entire market ecosystem managing and accounting for the entire production process from core production constituency to consumer.
