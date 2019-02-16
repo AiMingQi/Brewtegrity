@@ -14,7 +14,7 @@ var config = {
 firebase.initializeApp(config);
 
 const firestore = firebase.firestore();
-  const settings = {/* your settings... */ timestampsInSnapshots: true};
+  const settings = {/* your settings... */};
   firestore.settings(settings);
 
 // a reference to the Evidences collection

@@ -11,7 +11,7 @@
             v-img(src="/barcode-temp.jpg" alt="Barcode Scanner" class="mb-5 center" style="margin: 0 auto;")
             v-form
               v-text-field(
-                v-model="productKey"
+                
                 label="Product Key"
                 required
                 )
@@ -29,7 +29,7 @@ const uport = new Connect('Crypto-Catalyst', {network: 'mainnet'})
 export default {
   data () {
     return {
-      producKey: 0,
+      producKey: '',
       dialog: false,
       visitor: {
         visitor: {

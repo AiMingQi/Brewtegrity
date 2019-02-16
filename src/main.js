@@ -12,7 +12,7 @@ import VueAxios from 'vue-axios'
 import Portis from '@portis/web3';
 import Web3 from 'web3';
 
-const portis = new Portis('YOUR_DAPP_ID', 'mainnet');
+const portis = new Portis('dfcc469a-f55e-4cdc-9c4b-3390f889b1b4', 'mainnet');
 const web3 = new Web3(portis.provider);
 
 Vue.use(VueAxios, axios)
