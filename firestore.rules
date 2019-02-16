@@ -1,7 +1,17 @@
 service cloud.firestore {
   match /databases/{database}/documents {
+    match /visitors/{visitor} {
+      allow read, write: if true;
+      allow create: if true;
+    }
+    match /timesubmissions/{timesubmission} {
+      allow read, write: if true;
+      allow create: if true;
+    }
     match /{document=**} {
-      allow read, write;
+      allow read: if true;
+      allow create: if request.auth.uid != null && request.auth.uid == request.resource.data.author;
+      allow update: if request.auth.uid != null && request.auth.uid == request.resource.data.author;
     }
   }
 }
