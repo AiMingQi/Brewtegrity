@@ -8,7 +8,7 @@
             h1 What's in your Beer?
           v-card-text
             h2.mb-3 Scan the barcode on your Brewtegrity® enabled beer. 
-            v-img(src="/barcode-temp.jpg" alt="Barcode Scanner" width="400px" height="400px" class="mb-5 center" style="margin: 0 auto;")
+            v-img(src="/barcode-temp.jpg" alt="Barcode Scanner" class="mb-5 center" style="margin: 0 auto;")
             v-form
               v-text-field(
                 v-model="productKey"

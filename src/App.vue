@@ -20,7 +20,8 @@
             v-list-tile-action
               strong {{i+1}}
             v-list-tile-title.index_title(v-text="item.title")
-      v-img.ml-2(src="/banner-logo.png")
+      a(href="https://crypto-catalyst.com" target="_blank")
+        v-img.ml-2(src="/banner-logo.png")
       v-divider.my-3
       v-btn.mt-3(href="https://www.coinbase.com/join/595aacbcf7cf5b058fdf5a04" target="_blank" rel="noopener" color="secondary" block large) Get Some Crypto
       v-card.text-xs-center.pb-3
