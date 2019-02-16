@@ -15,7 +15,7 @@
                 label="Product Key"
                 required
                 )
-              v-btn(@click="") Submit
+              v-btn(@click="showPortis") Submit
         
 </template>
 
@@ -23,6 +23,12 @@
 import { store } from '../store';
 import 'firebase/auth';
 import { Connect } from 'uport-connect'
+
+import Portis from '@portis/web3';
+import Web3 from 'web3';
+
+const portis = new Portis('dfcc469a-f55e-4cdc-9c4b-3390f889b1b4', 'rinkeby');
+const web3 = new Web3(portis.provider);
 
 const uport = new Connect('Crypto-Catalyst', {network: 'mainnet'})
 
@@ -51,10 +57,13 @@ export default {
   created () {
     web3.eth.getAccounts((error, accounts) => {
       console.log(accounts);
-      console.log('winner')
+      console.log('winner');
     });
   },
   methods: {
+    showPortis () {
+      portis.showPortis();
+    },
     uportAdd () {
       uport.requestDisclosure({
         requested: ['name','country','email','avatar'],
