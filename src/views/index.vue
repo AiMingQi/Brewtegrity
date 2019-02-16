@@ -2,10 +2,20 @@
   v-layout(column justify-center align-center)
     v-flex(xs12 sm8 md6)
       div.pa-3.text-xs-center
-        v-btn.black--text(to="/all-evidence" color="primary" large) What is Brewtegrity?
-        h2 What's in your Beer?
+        v-btn.black--text(to="/all-evidence" color="primary" large) What is Brewtegrity™?
         v-card.pt-5.pb-1.px-3.mt-5
-          v-img(src="" alt="Crypto Catalyst Logo" max-width="400px" height="400px" class="mb-5 center" style="margin: 0 auto;")
+          v-card-title
+            h1 What's in your Beer?
+          v-card-text
+            h2.mb-3 Scan the barcode on your Brewtegrity™ enabled beer. 
+            v-img(src="/barcode-temp.jpg" alt="Barcode Scanner" width="400px" height="400px" class="mb-5 center" style="margin: 0 auto;")
+            v-form
+              v-text-field(
+                v-model="productKey"
+                label="Product Key"
+                required
+                )
+              v-btn(@click="") Submit
         
 </template>
 
@@ -19,6 +29,7 @@ const uport = new Connect('Crypto-Catalyst', {network: 'mainnet'})
 export default {
   data () {
     return {
+      producKey: 0,
       dialog: false,
       visitor: {
         visitor: {

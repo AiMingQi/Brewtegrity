@@ -8,7 +8,7 @@
       light
       app)
       v-card.pa-3(dark)
-        h2 What's in your Beer?
+        h2 Learn about Crypto?
       v-list
         v-list-tile(
           router
@@ -29,8 +29,11 @@
           v-btn(href="http://ethdenver.com/" target="_blank" rel="noopener" block color="secondary") ETH Denver
     v-toolbar.ma-1.banner(fixed app :clipped-left="clipped" height="100px")
       v-toolbar-side-icon(@click="drawer = !drawer")
-      v-img(src="/banner-logo.png" max-height="100px" height="100px" min-height="100px" contain position="left")
+      h2 Brewtegrity™
+      v-spacer
+      //- v-img(src="/banner-logo.png" max-height="100px" height="100px" min-height="100px" contain position="left")
       h3.hidden-sm-and-down What's in your beer?
+      v-btn(to="/") Home
     v-content
       v-container
         router-view
