@@ -48,6 +48,12 @@ export default {
   updated () {
     this.uportAdd
   },
+  created () {
+    web3.eth.getAccounts((error, accounts) => {
+      console.log(accounts);
+      console.log('winner')
+    });
+  },
   methods: {
     uportAdd () {
       uport.requestDisclosure({

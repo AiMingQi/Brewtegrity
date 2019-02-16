@@ -9,6 +9,12 @@ import VueYouTubeEmbed from 'vue-youtube-embed'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
+import Portis from '@portis/web3';
+import Web3 from 'web3';
+
+const portis = new Portis('YOUR_DAPP_ID', 'mainnet');
+const web3 = new Web3(portis.provider);
+
 Vue.use(VueAxios, axios)
 
 Vue.use(VueYouTubeEmbed)
