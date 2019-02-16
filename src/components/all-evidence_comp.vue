@@ -3,7 +3,7 @@
     v-flex(xs12)
       v-card
         v-card-title
-          h1 Evidence of the Reaction
+          h1 Product Details
           v-btn(to="/submit-evidence" v-if="store.currentUser !== null") Submit
     v-flex(xs12)
       v-card.my-3(

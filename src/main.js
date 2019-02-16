@@ -40,8 +40,8 @@ window.ability = ability
 
 Vue.use(Vuetify, {
   theme: {
-    primary: '#FF9F00',
-    secondary: '#033E22'
+    primary: '#F0C078',
+    secondary: '#C09048'
   }
 })
 
