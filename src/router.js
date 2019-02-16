@@ -57,11 +57,6 @@ export default new Router({
       component: () => import(/* webpackChunkName: "submitevidence" */ './views/submit-evidence.vue')
     },
     {
-      path: '/visualization-playground',
-      name: 'visualizationplayground',
-      component: () => import(/* webpackChunkName: "visualizationplayground" */ './views/visualization-playground.vue')
-    },
-    {
       path: '/time-submission',
       name: 'timesubmission',
       component: () => import(/* webpackChunkName: "visualizationplayground" */ './views/time-submission.vue')
@@ -70,6 +65,11 @@ export default new Router({
       path: '/behind-the-curtain',
       name: 'behindthecurtain',
       component: () => import(/* webpackChunkName: "visualizationplayground" */ './views/behind-the-curtain.vue')
+    },
+    {
+      path: '/what-is-brewtegrity',
+      name: 'brewtegrityexplained',
+      component: () => import(/* webpackChunkName: "visualizationplayground" */ './views/brewtegrity-explained.vue')
     }
   ]
 })
