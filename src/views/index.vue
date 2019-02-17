@@ -9,13 +9,14 @@
           v-card-text
             h2.mb-3 Scan the barcode on your Brewtegrity® enabled beer. 
             v-img(src="/barcode-temp.jpg" alt="Barcode Scanner" class="mb-5 center" style="margin: 0 auto;")
+            p {{OWNER_ADDRESS}}
             v-form
               v-text-field(
-                
+                v-model="factoryContract"
                 label="Product Key"
                 required
                 )
-              v-btn(@click="showPortis") Submit
+              v-btn(@click="tryThis") Submit
         
 </template>
 
@@ -32,11 +33,59 @@ const web3 = new Web3(portis.provider);
 
 const uport = new Connect('Crypto-Catalyst', {network: 'mainnet'})
 
+// const HDWalletProvider = require("truffle-hdwallet-provider")
+const MNEMONIC = "hamster useless similar silk junior stairs juice harvest deny bean pyramid miss"
+const INFURA_KEY = "Iw4pUdWfzz9ZxddqpXrS"
+// const FACTORY_CONTRACT_ADDRESS = factoryContract
+// const NFT_CONTRACT_ADDRESS = "0x12C42ff84eCF88050330d627A61aDb1b62f630D5"
+// const OWNER_ADDRESS = ownerAccount
+const NETWORK = "rinkeby"
+const NUM_BEERS = 1
+const DEFAULT_OPTION_ID = 0
+
+const NFT_ABI = [{
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_to",
+        "type": "address"
+      }
+    ],
+    "name": "mintTo",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+}]
+
+const FACTORY_ABI = [{
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_optionId",
+        "type": "uint256"
+      },
+      {
+        "name": "_toAddress",
+        "type": "address"
+      }
+    ],
+    "name": "mint",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+}]
+
+// import mint from './mint.js'
+
 export default {
   data () {
     return {
       producKey: '',
       dialog: false,
+      OWNER_ADDRESS: '',
+      factoryContract: '0x12C42ff84eCF88050330d627A61aDb1b62f630D5',
       visitor: {
         visitor: {
           avatar: {
@@ -58,11 +107,41 @@ export default {
     web3.eth.getAccounts((error, accounts) => {
       console.log(accounts);
       console.log('winner');
+      this.OWNER_ADDRESS = accounts
     });
   },
   methods: {
     showPortis () {
       portis.showPortis();
+    },
+    async tryThis () {
+        const provider = portis.provider
+        const web3Instance = web3
+
+    if (false) {
+        const nftContract = new web3Instance.eth.Contract(NFT_ABI, NFT_CONTRACT_ADDRESS, { gasLimit: "1000000" })
+
+        // Creatures issued directly to the owner.
+        for (var i = 0; i < NUM_BEERS; i++) {
+            const result = await nftContract.methods.mintTo(this.OWNER_ADDRESS).send({ from: this.OWNER_ADDRESS });
+            console.log("Minted creature. Transaction: " + result.transactionHash)
+        }
+    } else if (this.factoryContract) {
+        const factoryContract = new web3Instance.eth.Contract(FACTORY_ABI, this.factoryContract, { gasLimit: "1000000" })
+
+        // Creatures issued directly to the owner.
+        for (var i = 0; i < NUM_BEERS; i++) {
+            const result = await factoryContract.methods.mint(DEFAULT_OPTION_ID, this.OWNER_ADDRESS).send({ from: this.OWNER_ADDRESS });
+            console.log("Minted creature. Transaction: " + result.transactionHash)
+        }
+
+        // Lootboxes issued directly to the owner.
+        for (var i = 0; i < NUM_LOOTBOXES; i++) {
+            const result = await factoryContract.methods.mint(LOOTBOX_OPTION_ID, OWNER_ADDRESS).send({ from: OWNER_ADDRESS });
+            console.log("Minted lootbox. Transaction: " + result.transactionHash)
+        }
+    
+}
     },
     uportAdd () {
       uport.requestDisclosure({

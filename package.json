@@ -17,6 +17,7 @@
     "firebase": "^5.5.4",
     "material-design-icons-iconfont": "^3.0.3",
     "moment": "^2.22.2",
+    "truffle-hdwallet-provider": "^1.0.4",
     "tween.js": "^16.6.0",
     "uport-connect": "^1.0.0",
     "vue": "^2.5.17",

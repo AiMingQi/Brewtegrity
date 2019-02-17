@@ -21,18 +21,18 @@
               strong {{i+1}}
             v-list-tile-title.index_title(v-text="item.title")
       a(href="https://crypto-catalyst.com" target="_blank")
-        v-img.ml-2(src="/banner-logo.png")
+        v-img.ml-2(src="/banner-logo-cc.png")
       v-divider.my-3
       v-btn.mt-3(href="https://www.coinbase.com/join/595aacbcf7cf5b058fdf5a04" target="_blank" rel="noopener" color="secondary" block large) Get Some Crypto
       v-card.text-xs-center.pb-3
         v-card-text
           v-btn(href="https://coinmarketcap.com" target="_blank" rel="noopener" block color="secondary") Coin Market Cap
           v-btn(href="http://ethdenver.com/" target="_blank" rel="noopener" block color="secondary") ETH Denver
-    v-toolbar.ma-1.banner(fixed app :clipped-left="clipped" height="100px")
+    v-toolbar(fixed app :clipped-left="clipped" height="100px")
       v-toolbar-side-icon(@click="drawer = !drawer")
-      h2 Brewtegrity™
+      v-img(src="/banner-logo-bt.png" max-height="100px" height="12px" min-height="100px" contain position="left")
+      //- h2 Brewtegrity™
       v-spacer
-      //- v-img(src="/banner-logo.png" max-height="100px" height="100px" min-height="100px" contain position="left")
       h3.hidden-sm-and-down What's in your beer?
       v-btn(to="/") Home
       v-btn(to="/beer-submission") Brewery
@@ -61,7 +61,7 @@ export default {
     return {
       store,
       clipped: false,
-      drawer: true,
+      drawer: false,
       fixed: false,
       items: [
         { title: 'Liquid Democracy', to: '/liquid-democracy' },
