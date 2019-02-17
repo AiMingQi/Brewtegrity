@@ -30,7 +30,7 @@
           v-btn(href="http://ethdenver.com/" target="_blank" rel="noopener" block color="secondary") ETH Denver
     v-toolbar(fixed app :clipped-left="clipped" height="100px")
       v-toolbar-side-icon(@click="drawer = !drawer")
-      v-img(src="/banner-logo-bt.png" max-height="100px" height="12px" min-height="100px" contain position="left")
+      v-img(src="/mark.png" max-height="100px" height="12px" min-height="100px" contain position="left")
       //- h2 Brewtegrity™
       v-spacer
       h3.hidden-sm-and-down What's in your beer?

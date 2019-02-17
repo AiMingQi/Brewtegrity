@@ -17,7 +17,7 @@
                 label="Product Key"
                 required
                 )
-              v-btn(@click="tryThis") Submit
+              v-btn(color="secondary" @click="tryThis") Submit
         
 </template>
 
