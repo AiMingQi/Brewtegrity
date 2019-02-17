@@ -34,8 +34,8 @@
       //- h2 Brewtegrity™
       v-spacer
       h3.hidden-sm-and-down What's in your beer?
-      v-btn(to="/") Home
-      v-btn(to="/beer-submission") Brewery
+      v-btn(color="primary" to="/") Home
+      v-btn(color="secondary" to="/beer-submission") Brewery
     v-content
       v-container
         router-view
