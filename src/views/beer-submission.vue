@@ -4,6 +4,7 @@
       v-flex
         v-card
           v-card-title
+            v-img.ma-2(src="/mark.png" max-height="80px" max-width="80px")
             h1 Beer Submission
           v-card-text
             h1 Brewery Information

@@ -4,7 +4,8 @@
         v-flex(xs12)
             v-card.pa-3()
                 v-card-title
-                    h2.primary--text What is Brewtegrity®?
+                    v-img.ma-2(src="/mark.png" max-height="80px" max-width="80px")
+                    h1.primary--text What is Brewtegrity®?
                 v-card-text
                     h2 Brewtegrity® Tenets
                     ul

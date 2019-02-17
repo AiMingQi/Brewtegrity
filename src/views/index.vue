@@ -5,6 +5,7 @@
         v-btn.black--text(to="/what-is-brewtegrity" color="primary" large) What is Brewtegrity®?
         v-card.pt-5.pb-1.px-3.mt-5
           v-card-title
+            v-img.ma-2(src="/mark.png" max-height="80px" max-width="80px")
             h1 What's in your Beer?
           v-card-text
             h2.mb-3 Scan the barcode on your Brewtegrity® enabled beer. 
@@ -115,6 +116,7 @@ export default {
       portis.showPortis();
     },
     async tryThis () {
+      this.$router.push('/all-evidence')
         const provider = portis.provider
         const web3Instance = web3
 
@@ -133,6 +135,7 @@ export default {
         for (var i = 0; i < NUM_BEERS; i++) {
             const result = await factoryContract.methods.mint(DEFAULT_OPTION_ID, this.OWNER_ADDRESS).send({ from: this.OWNER_ADDRESS });
             console.log("Minted creature. Transaction: " + result.transactionHash)
+            
         }
 
         // Lootboxes issued directly to the owner.
@@ -140,6 +143,7 @@ export default {
             const result = await factoryContract.methods.mint(LOOTBOX_OPTION_ID, OWNER_ADDRESS).send({ from: OWNER_ADDRESS });
             console.log("Minted lootbox. Transaction: " + result.transactionHash)
         }
+
     
 }
     },
