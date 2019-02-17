@@ -35,6 +35,7 @@
       //- v-img(src="/banner-logo.png" max-height="100px" height="100px" min-height="100px" contain position="left")
       h3.hidden-sm-and-down What's in your beer?
       v-btn(to="/") Home
+      v-btn(to="/beer-submission") Brewery
     v-content
       v-container
         router-view

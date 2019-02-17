@@ -18,8 +18,8 @@ const firestore = firebase.firestore();
   firestore.settings(settings);
 
 // a reference to the Evidences collection
-const evidencesCollection = firebase.firestore()
-  .collection('evidences');
+const beerBatchCollection = firebase.firestore()
+  .collection('BeerBatches');
 // a reference to the Evidences collection
 const visitorsCollection = firebase.firestore()
   .collection('visitors');
@@ -30,18 +30,19 @@ const timeSubmissionCollection = firebase.firestore()
 // the shared state object that any vue component
 // can get access to
 export const store = {
-  evidenceInFeed: null,
+  BeerBatchInFeed: null,
+  visitorsInFeed: null,
   visitorsInFeed: null,
   currentUser: null,
-  writeEvidence: (newEvidence) => {
+  writeBeerBatch: (newBeerBatch) => {
     const dt = {
       createdOn: new Date(),
       author: store.currentUser.uid,
       author_name: store.currentUser.displayName,
       author_image: store.currentUser.photoURL,
-      newEvidence
+      newBeerBatch
     };
-    return evidencesCollection.add(dt).catch(e => console.error('error inserting', dt, e));
+    return beerBatchCollection.add(dt).catch(e => console.error('error inserting', dt, e));
   },
   writeVisitor: (visitor) => {
     const dt = {
@@ -81,18 +82,18 @@ export const store = {
 // It will get passed an array of references to 
 // the documents that match your query
 
-evidencesCollection
+beerBatchCollection
   .orderBy('createdOn', 'desc')
   .limit(100)
-  .onSnapshot((evidencesRef) => {
-    const evidences = [];
-    evidencesRef.forEach((doc) => {
-      const evidence = doc.data();
-      evidence.id = doc.id;
-      evidences.push(evidence);
+  .onSnapshot((beerBatchesRef) => {
+    const beerBatches = [];
+    beerBatchesRef.forEach((doc) => {
+      const beerBatch = doc.data();
+      beerBatch.id = doc.id;
+      beerBatches.push(beerBatch);
     });
-    // console.log('Received Evidence feed:', evidences);
-    store.evidenceInFeed = evidences;
+    // console.log('Received BeerBatch feed:', BeerBatches);
+    store.BeerBatchInFeed = beerBatches;
   });
 
 visitorsCollection

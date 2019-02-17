@@ -1,46 +1,85 @@
 <template lang="pug">
   v-card.pa-3
+    h1 Brewery Information
     v-form(
       ref="form"
       v-model="valid"
       lazy-validation
     )
-      v-select(
-        :items="ways"
-        label="5 Ways"
-        v-model="evidence_way"
-        required
-      )
-      v-select(
-        :items="types"
-        label="Type of Evidence"
-        v-model="evidence_type"
+      //- v-select(
+      //-   :items="ways"
+      //-   label="5 Ways"
+      //-   v-model="evidence_way"
+      //-   required
+      //- )
+      v-text-field(
+        v-model="evidence_title"
+        :rules="evidence_titleRules"
+        label="Smart Contract Address"
         required
       )
       v-text-field(
         v-model="evidence_title"
         :rules="evidence_titleRules"
-        label="Title"
+        label="Beer Name"
         required
       )
       v-text-field(
         v-model="evidence_body"
-        :rules="evidence_bodyRules"
-        label="Excerpt of Evidence"
+        :rules="evidence_titleRules"
+        label="Brewery"
         required
       )
-      v-text-field(
-        v-model="evidence_link"
-        :rules="evidence_linkRules"
-        label="Link to Proof"
-        required
-      )
-      p If you would like to post a link or crypto wallet address for your hard work.
       v-text-field(
         v-model="evidence_tip"
-        :rules="evidence_tipRules"
-        label="Link to Tip"
+        :rules="evidence_titleRules"
+        label="Brewer"
       )
+      h3 Brew Date
+      v-date-picker(
+        v-model="evidence_link"
+        label="Brew Date"
+        landscape
+        required
+      )
+      v-card.pa-3(light)
+        h2 Ingredients - What is in your Beer
+        v-select(
+          :items="types"
+          label="Brewed with Brewtegrity®"
+          v-model="evidence_type"
+          required
+        )
+        v-text-field(
+          v-model="evidence_tip"
+          :rules="evidence_titleRules"
+          label="Hops"
+        )
+        v-text-field(
+          v-model="evidence_tip"
+          :rules="evidence_titleRules"
+          label="Grain"
+        )
+        v-text-field(
+          v-model="evidence_tip"
+          :rules="evidence_titleRules"
+          label="Yeast"
+        )
+        v-text-field(
+          v-model="evidence_tip"
+          :rules="evidence_titleRules"
+          label="Water"
+        )
+        v-text-field(
+          v-model="evidence_tip"
+          :rules="evidence_titleRules"
+          label="Adjuncts"
+        )
+        v-text-field(
+          v-model="evidence_tip"
+          :rules="evidence_titleRules"
+          label="Additives"
+        )
       v-btn(
         :disabled="!valid"
         @click="submitEvidence"
@@ -57,24 +96,17 @@ import 'firebase/auth';
 
 export default {
   data: () => ({
-    ways: [
-      'Liquid Democracy',
-      'Instant Money',
-      'Democratized VC',
-      'Supply Chain Transparency',
-      'Historical Records'
-    ],
     types: [
-      'Hard Evidence',
-      'Useful Definition or Clarity Point',
-      'Future Potential - Highly Feesible'
+      'Undisclosed',
+      'Yes',
+      'No'
     ],
     evidence_way: '',
     valid: true,
     evidence_title: '',
     evidence_titleRules: [
-      v => !!v || 'Title is required',
-      v => (v && v.length <= 100) || 'Title must be less than 100 characters'
+      v => !!v || 'Entry is required',
+      v => (v && v.length <= 100) || 'Entry must be less than 100 characters'
     ],
     evidence_body: '',
     evidence_bodyRules: [
@@ -95,7 +127,7 @@ export default {
     submitEvidence () {
       if (this.$refs.form.validate()) {
         // Native form submission is not yet supported
-        store.writeEvidence(this.newEvidence);
+        store.writeBeerBatch(this.newBeerBatch);
         // console.log('trying to send')
         // console.log(this.newEvidence)
         this.$refs.form.reset()

@@ -52,14 +52,14 @@ export default new Router({
       component: () => import(/* webpackChunkName: "allevidence" */ './views/all-evidence.vue')
     },
     {
-      path: '/submit-evidence',
-      name: 'submitevidence',
-      component: () => import(/* webpackChunkName: "submitevidence" */ './views/submit-evidence.vue')
+      path: '/submit-beer',
+      name: 'submitbeer',
+      component: () => import(/* webpackChunkName: "submitevidence" */ './views/submit-beer.vue')
     },
     {
-      path: '/time-submission',
-      name: 'timesubmission',
-      component: () => import(/* webpackChunkName: "visualizationplayground" */ './views/time-submission.vue')
+      path: '/beer-submission',
+      name: 'beersubmission',
+      component: () => import(/* webpackChunkName: "visualizationplayground" */ './views/beer-submission.vue')
     },
     {
       path: '/behind-the-curtain',
