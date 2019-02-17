@@ -8,33 +8,35 @@
             h1 What's in your Beer?
           v-card-text
             h2 Brewery Information
-            P 1. Beer Name
-            v-text-field(v-model="beerName")
-            P 2. Brewery Name
-            v-text-field(v-model="breweryName")
-            p 3. Brewer
-            v-text-field(v-model="brewer")
-            p 4. Brew Date
-            v-date-picker(landscape reactive v-model="date")
-            p.mt-2 5. Ethereum Address where the Smart Contract is Deployed
-            v-text-field( label="ETH Address" v-model="ethaddress")
+            h3.primary--text 1. Beer Name
+            p American Bold
+            h3.primary--text 2. Brewery Name
+            p Vindication
+            h3.primary--text 3. Brewer
+            p Eric Huber
+            h3.primary--text 4. Brew Date
+            p February 17, 2019
+            h3.primary--text 5. Ethereum Address where the Smart Contract is Deployed
+            a(href="https://rinkeby.etherscan.io/address/0x12C42ff84eCF88050330d627A61aDb1b62f630D5") 0x12C42ff84eCF88050330d627A61aDb1b62f630D5
         
         v-card(light)
           v-card-title
             h1 Ingredients - What is in the Beer
           v-card-text
-            P 1. Hops
-            v-text-field(v-model="hops")
-            P 2. Grain
-            v-text-field(v-model="grain")
-            p 3. Yeast
-            v-text-field(v-model="yeast")
-            p 4. Water
-            v-text-field(v-model="water")
-            p 5. Adjuncts
-            v-text-field(v-model="adjuncts")
-            p 6. Additives
-            v-text-field(v-model="additives")
+            h3 This Brew Has 
+            v-img(src="banner-logo-bt.png" contain width="40%")
+            h3.primary--text 1. Hops
+            p Calypso
+            h3.primary--text 2. Grain
+            p Barley
+            h3.primary--text 3. Yeast
+            p Imperial Yeast A38 Juice
+            h3.primary--text 4. Water
+            p Denver Watershed
+            h3.primary--text 5. Adjuncts
+            p none
+            h3.primary--text 6. Additives
+            p none
 
 </template>
  

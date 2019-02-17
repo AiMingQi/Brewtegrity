@@ -3,9 +3,9 @@
     v-flex(xs12 sm8 md6)
       div.pa-3.text-xs-center
         v-btn.black--text(to="/what-is-brewtegrity" color="primary" large) What is Brewtegrity®?
-        v-card.pt-5.pb-1.px-3.mt-5
+        v-card.pt-5.pb-1.px-3.mt-5(light)
           v-card-title
-            v-img.ma-2(src="/mark.png" max-height="80px" max-width="80px")
+            v-img.ma-2(src="/banner-logo-bt.png" width="100%")
             h1 What's in your Beer?
           v-card-text
             h2.mb-3 Scan the barcode on your Brewtegrity® enabled beer. 
